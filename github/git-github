@@ -1,0 +1,56 @@
+首先确保已经安装了git：
+sudo apt-get install git-core
+
+配置用户名和密码：
+git config --global user.name "SunQiang"
+git config --global user.email tjusunqiang@gmail.com
+
+创建ssh密钥：
+ssh-keygen -C 'tjusunqiang@gmail.com' -t rsa
+
+将公钥上传到github：
+将.ssh/id_rsa.pub上传到github的SSH Keys中，title随意
+
+使用ssh -T git@github.com命令测试是否联通：
+出现“Hi xiaobingjia! You've successfully authenticated, but GitHub does not provide shell access.”等字样说明成功了。
+
+在本地新建git仓库：
+先cd到要项目目录下,然后：
+git init
+会在该项目目录下生成一个.git文件夹
+
+从网络上克隆：
+git clone <url>
+例如在～目录下执行
+git clone https://github.com/JamesPan/fancyresume.git
+则会自动生成fancyresume目录及其文件
+
+向git库添加文件（夹）：
+git add <file>
+一般第一次新建库后执行
+git add .
+以添加所有文件
+平时添加文件类似：
+git add adb.txt
+
+从git库删除文件：
+git rm --cached <file>
+例如 git rm --cached adb.txt
+
+显示当前工作状态：
+git status
+
+...
+
+在github新建repository
+例如：ubuntu-config
+
+然后按照它的提示操作即可：
+
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+
+git remote add origin git@github.com:xiaobingjia/ubuntu-config
+git push -u origin master
